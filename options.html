@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sticky Fullscreen Settings</title>
+  <style>
+    body { background-color: #000; color: white; font-family: 'Segoe UI', sans-serif; display: flex; justify-content: center; padding: 40px 20px; margin: 0; }
+    .container { width: 100%; max-width: 550px; border: 1px solid #54E4C3; padding: 30px; border-radius: 16px; box-shadow: 0 10px 30px rgba(84, 228, 195, 0.2); }
+    .header { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+    .logo { width: 56px; height: 56px; border-radius: 10px; }
+    h1 { color: #54E4C3; font-weight: 600; margin: 0; font-size: 1.6em; }
+    .setting-group { margin-top: 25px; }
+    .setting-header { display: block; font-size: 1.1em; font-weight: 600; color: #54E4C3; margin-bottom: 5px; }
+    .setting-info { font-size: 0.9em; color: #888; margin-bottom: 15px; display: block; }
+    textarea { width: 100%; height: 120px; background: #111; border: 1px solid #333; border-radius: 8px; color: #fff; padding: 12px; font-family: monospace; box-sizing: border-box; resize: vertical; }
+    textarea:focus { border-color: #54E4C3; outline: none; }
+    button { background-color: #54E4C3; color: #000; border: none; padding: 12px 24px; border-radius: 8px; font-weight: bold; cursor: pointer; width: 100%; margin-top: 20px; transition: opacity 0.2s; }
+    button:hover { opacity: 0.9; }
+    .status { margin-top: 15px; text-align: center; color: #54E4C3; height: 20px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="icon48.png" alt="Sticky Fullscreen" class="logo">
+      <h1>Sticky Fullscreen</h1>
+    </div>
+    <div class="setting-group">
+      <span class="setting-header">Allowed Domains</span>
+      <span class="setting-info">Enter the domains where you want to force fullscreen. One per line.</span>
+      <textarea id="fullscreenSites" placeholder="amazonaws.com&#10;example.com"></textarea>
+    </div>
+    <button id="save">Save Configuration</button>
+    <div id="status" class="status"></div>
+    <center>
+      <a href="https://www.buymeacoffee.com/desertdog" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
+    </center>
+  </div>
+  <script src="options.js"></script>
+</body>
+</html>
