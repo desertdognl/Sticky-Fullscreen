@@ -12,13 +12,13 @@ Sticky Fullscreen allows you to whitelist specific domains where you want to enf
 
 ## How it Works
 
-The extension listens for tab updates. When a tab finishes loading, the extension checks if the URL belongs to a domain on your whitelist. If it does, it forces the browser window into fullscreen mode.
+The extension listens for navigations. When a tab finishes loading, the extension checks if the URL belongs to a domain on your whitelist. If it does, it will try to make the window fullscreen. There are user-controllable options (see below) to tweak when and how the extension shows its overlay and triggers fullscreen.
 
 ## Arc browser compatibility
 
 Some Chromium-based browsers (notably Arc) block extensions from forcing fullscreen programmatically because fullscreen entry typically requires a user gesture. When that happens the extension cannot silently set the window to fullscreen.
 
-This extension includes a fallback for those browsers: it attempts the normal `chrome.windows.update({ state: 'fullscreen' })` call, and if that fails the extension uses a content script to show a small overlay button on pages matching your whitelist. Clicking that button runs the page's `requestFullscreen()` call — a user gesture — which will enter fullscreen in browsers that block programmatic fullscreen.
+This extension includes a fallback for browsers that block programmatic fullscreen: it attempts `chrome.windows.update({ state: 'fullscreen' })`, and if that fails the content script shows a small overlay button on matching pages. Clicking that button runs the page's `requestFullscreen()` call — a user gesture — which will enter fullscreen in browsers that block programmatic fullscreen.
 
 Known behavior:
 - Google Chrome (standard builds): the extension can usually set the window to fullscreen automatically.
@@ -27,13 +27,18 @@ Known behavior:
 ## How to Use
 
 1.  Click the extension icon in your browser toolbar.
-2.  Enter the domains you want to keep in fullscreen, one per line. For example:
+3.  Enter the domains you want to keep in fullscreen, one per line. For example:
     ```
     example.com
     app.another-domain.net
     ```
-3.  Click "Save".
-4.  Navigate to one of the whitelisted domains. The window should now enter and remain in fullscreen mode as you navigate within that domain.
+4.  Click "Save".
+5.  Visit a whitelisted site and use the new options:
+    - Show Fullscreen Button: toggles the overlay button (it auto-hides after 10 seconds).
+    - Avoid fullscreen on initial page load: when enabled, the extension will skip attempting fullscreen on the first completed navigation for a tab and will only act after a later redirect/navigation.
+    - Hide Mouse Cursor: when enabled, hides the cursor after 10 seconds of inactivity on allowed sites.
+
+Note: the overlay hide timeout is now hardcoded to 10 seconds.
 
 ## For Developers
 
@@ -44,8 +49,11 @@ Files of interest:
 - [background.js](background.js)
 - [content.js](content.js)
 - [options.html](options.html)
+- [CHANGELOG.md](CHANGELOG.md)
 
-To debug: inspect the service worker from the `chrome://extensions` page (in Chrome) or use the developer tools in your browser to see logs from the content script.
+To debug: inspect the service worker from the `chrome://extensions` page (in Chrome) or use the developer tools in your browser to see logs from the content script. If you change the "Avoid fullscreen on initial page load" option, try reloading the extension and performing a redirect or navigation within the same tab to verify the behavior.
+
+Version: 1.1.2
 
 ## 📜 License
 MIT License - feel free to use and modify for your own projects.
