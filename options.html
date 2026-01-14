@@ -25,6 +25,30 @@
       <h1>Sticky Fullscreen</h1>
     </div>
     <div class="setting-group">
+      <span class="setting-header">Show Fullscreen Button</span>
+      <span class="setting-info">Toggle whether the small "Enter Fullscreen" button is shown on allowed sites. The button automatically hides after 10 seconds.</span>
+      <label style="display:flex;align-items:center;gap:8px;margin-top:8px;">
+        <input id="showFullscreenButton" type="checkbox" style="width:18px;height:18px;" />
+        <span style="color:#fff;">Show fullscreen button</span>
+      </label>
+    </div>
+    <div class="setting-group">
+      <span class="setting-header">Only After Redirect/Navigation</span>
+      <span class="setting-info">When enabled, the extension will not trigger fullscreen on the initial page load — it will only perform fullscreen after a subsequent navigation or redirect.</span>
+      <label style="display:flex;align-items:center;gap:8px;margin-top:8px;">
+        <input id="onlyAfterNavigation" type="checkbox" style="width:18px;height:18px;" />
+        <span style="color:#fff;">Avoid fullscreen on initial page load</span>
+      </label>
+    </div>
+    <div class="setting-group">
+      <span class="setting-header">Hide Mouse Cursor</span>
+      <span class="setting-info">When enabled, the mouse cursor will automatically hide after 10 seconds of inactivity on allowed sites.</span>
+      <label style="display:flex;align-items:center;gap:8px;margin-top:8px;">
+        <input id="hideMouseCursor" type="checkbox" style="width:18px;height:18px;" />
+        <span style="color:#fff;">Hide mouse cursor after inactivity</span>
+      </label>
+    </div>
+    <div class="setting-group">
       <span class="setting-header">Allowed Domains</span>
       <span class="setting-info">Enter the domains where you want to force fullscreen. One per line.</span>
       <textarea id="fullscreenSites" placeholder="amazonaws.com&#10;example.com"></textarea>
