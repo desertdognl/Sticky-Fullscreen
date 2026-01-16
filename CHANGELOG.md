@@ -2,7 +2,11 @@
 
 All notable changes to this extension are documented below.
 
-## 1.1.2 (2026-01-14)
+## 1.3.0 (2026-01-16)
+
+- Updated options popup width to 600px.
+
+## 1.2.0 (2026-01-14)
 
 - Added option: **Show Fullscreen Button** — toggle whether the small "Enter Fullscreen" overlay button is shown on allowed sites. The overlay auto-hides after 10 seconds.
 - Added option: **Hide Mouse Cursor** — when enabled, the mouse cursor will automatically hide after 10 seconds of inactivity on allowed sites.

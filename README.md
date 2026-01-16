@@ -53,7 +53,7 @@ Files of interest:
 
 To debug: inspect the service worker from the `chrome://extensions` page (in Chrome) or use the developer tools in your browser to see logs from the content script. If you change the "Avoid fullscreen on initial page load" option, try reloading the extension and performing a redirect or navigation within the same tab to verify the behavior.
 
-Version: 1.1.2
+Version: 1.2.0
 
 ## 📜 License
 MIT License - feel free to use and modify for your own projects.
