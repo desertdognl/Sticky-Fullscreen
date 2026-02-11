@@ -25,6 +25,14 @@
       <h1>Sticky Fullscreen</h1>
     </div>
     <div class="setting-group">
+      <span class="setting-header">Extension Enabled</span>
+      <span class="setting-info">Turn Sticky Fullscreen on or off without removing it.</span>
+      <label style="display:flex;align-items:center;gap:8px;margin-top:8px;">
+        <input id="extensionEnabled" type="checkbox" style="width:18px;height:18px;" />
+        <span style="color:#fff;">Enable Sticky Fullscreen</span>
+      </label>
+    </div>
+    <div class="setting-group">
       <span class="setting-header">Show Fullscreen Button</span>
       <span class="setting-info">Toggle whether the small "Enter Fullscreen" button is shown on allowed sites. The button automatically hides after 10 seconds.</span>
       <label style="display:flex;align-items:center;gap:8px;margin-top:8px;">
@@ -49,8 +57,35 @@
       </label>
     </div>
     <div class="setting-group">
-      <span class="setting-header">Allowed Domains</span>
-      <span class="setting-info">Enter the domains where you want to force fullscreen. One per line.</span>
+      <span class="setting-header">Overlay Placement</span>
+      <span class="setting-info">Choose where the fullscreen overlay button appears. Center placement can be convenient in Arc after redirects.</span>
+      <label style="display:flex;align-items:center;gap:8px;margin-top:8px;">
+        <select id="overlayPosition" style="background:#111;border:1px solid #333;border-radius:8px;color:#fff;padding:8px;">
+          <option value="top-right">Top-right (default)</option>
+          <option value="center">Center</option>
+        </select>
+      </label>
+    </div>
+    <div class="setting-group">
+      <span class="setting-header">Auto-Exit Fullscreen</span>
+      <span class="setting-info">Leave fullscreen when navigating away from allowed sites or when switching away from a fullscreen tab.</span>
+      <label style="display:flex;align-items:center;gap:8px;margin-top:8px;">
+        <input id="autoExitOnLeave" type="checkbox" style="width:18px;height:18px;" />
+        <span style="color:#fff;">Exit fullscreen when the active tab is not allowed</span>
+      </label>
+      <label style="display:flex;align-items:center;gap:8px;margin-top:8px;">
+        <input id="autoExitOnTabBlur" type="checkbox" style="width:18px;height:18px;" />
+        <span style="color:#fff;">Exit fullscreen when switching away from an allowed tab</span>
+      </label>
+    </div>
+    <div class="setting-group">
+      <span class="setting-header">Site Rules</span>
+      <span class="setting-info">One rule per line. Format: pattern [overlay=on|off] [cursor=on|off]. Use * as a wildcard or start with re: for regex. Order matters.</span>
+      <textarea id="siteRules" placeholder="example.com overlay=on cursor=off&#10;*.internal.local/* overlay=off cursor=on&#10;re:^https?://.*\\.example\\.com/app"></textarea>
+    </div>
+    <div class="setting-group">
+      <span class="setting-header">Allowed Domains (Legacy)</span>
+      <span class="setting-info">Optional legacy allowlist. This is kept for compatibility and can be left empty.</span>
       <textarea id="fullscreenSites" placeholder="amazonaws.com&#10;example.com"></textarea>
     </div>
     <button id="save">Save Configuration</button>

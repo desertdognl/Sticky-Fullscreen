@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Sticky Fullscreen",
-  "version": "1.3.0",
+  "version": "1.4.5",
   "description": "Maintains fullscreen mode for specific domains across redirects.",
   "permissions": [
     "storage",
@@ -16,9 +16,33 @@
     "default_title": "Sticky Fullscreen",
     "default_popup": "options.html"
   },
+  "commands": {
+    "toggle-fullscreen": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+F",
+        "mac": "Command+Shift+F"
+      },
+      "description": "Toggle fullscreen for the current tab"
+    },
+    "toggle-extension-enabled": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+E",
+        "mac": "Command+Shift+E"
+      },
+      "description": "Toggle Sticky Fullscreen on or off"
+    }
+  },
   "background": {
     "service_worker": "background.js"
   },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "pageHelper.js"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ],
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
